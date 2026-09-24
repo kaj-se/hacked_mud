@@ -69,6 +69,15 @@ You now have an array of pointers to potential `Window` objects. Once you'll lea
 There also should be a faster way to do this. Theoretically you could find a static field of some object of the program and branch off from it until you'll find the object that you need. That should be `O(1)` complexity, while the described method is `O(n)` complexity. The problem is that I don't know how to read static fields. If you know how to read static fields, please contribute to this project.  
 :::
 
+::: tip Faster alternative
+Scanning every mapped range for a matching `domain_vtables` value works, but it's
+`O(n)` over the whole process memory. [Finding objects via the GC](/docs/finding-objects-via-gc.html)
+describes a deterministic alternative: walk from the process ID down to the garbage
+collector's own bookkeeping, then generate candidate object addresses by arithmetic
+instead of scanning for them. It doesn't solve reading static fields either, but it
+gets you the same candidate list this page's scan produces, much faster.
+:::
+
 ## Reading object fields
 
 Each [MonoClassField](/docs/parsing-mono.html#monoclassfield) has an `offset` and a `TypeCode`
