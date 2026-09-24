@@ -1,9 +1,14 @@
 # From a process ID to Mono object addresses
 
 *How to locate the Boehm GC's state in a running Mono process, and generate object addresses straight from its own bookkeeping - without scanning memory.*
+*Wirtten by Kaj*
 
 ::: tip Where this fits in
 The [Reading objects](/docs/reading-objects.html#how-to-find-objects) page finds `Window` objects by scanning every mapped memory range for a matching `domain_vtables` value. That works, but it is `O(n)` over the whole process memory. This page is a different, deterministic route to the same kind of result: it walks from the process ID down to the garbage collector's own state, and then generates candidate object addresses by arithmetic instead of scanning for them. It does not (yet) solve reading static fields, but it does answer the "there should be a faster way" note on that page.
+:::
+
+::: info AI
+The base markdown was generated with AI also some bad english phrasings where correct with it.
 :::
 
 ---
