@@ -45,6 +45,7 @@ export default //withMermaid(
             { text: 'Sending virtual inputs (Linux)', link: '/docs/sending-virtual-Inputs' },
             { text: 'Memory layout jargon', link: '/docs/memory-layout' },
             { text: 'Finding mono root domain (Linux)', link: '/docs/finding-mono-root-domain' },
+            { text: 'Finding objects via the GC', link: '/docs/finding-objects-via-gc' },
             { text: 'Parsing mono', link: '/docs/parsing-mono' },
             { text: 'Reading objects', link: '/docs/reading-objects' },
             { text: 'Hacking the mud', link: '/docs/hacking-the-mud' },
